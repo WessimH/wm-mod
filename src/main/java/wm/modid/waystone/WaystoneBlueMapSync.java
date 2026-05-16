@@ -2,7 +2,7 @@ package wm.modid.waystone;
 
 import de.bluecolored.bluemap.api.BlueMapAPI;
 import de.bluecolored.bluemap.api.markers.MarkerSet;
-import de.bluecolored.bluemap.api.markers.POIMarker;
+import de.bluecolored.bluemap.api.markers.HtmlMarker;
 import net.blay09.mods.waystones.api.WaystonesAPI;
 import net.blay09.mods.waystones.api.Waystone;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
@@ -140,11 +140,22 @@ public class WaystoneBlueMapSync {
                     );
 
                     var pos = waystone.getPos();
+                    String name = waystone.getName().getString();
+                    String html =
+                        "<div style='" +
+                            "background:rgba(0,0,0,0.55);" +
+                            "color:#fff;" +
+                            "padding:3px 8px;" +
+                            "border-radius:2px;" +
+                            "font-family:\"Courier New\",monospace;" +
+                            "font-size:13px;" +
+                            "white-space:nowrap;" +
+                            "pointer-events:none;" +
+                        "'>✦ " + name + "</div>";
                     set.put(waystone.getWaystoneUid().toString(),
-                        POIMarker.builder()
-                            .label(waystone.getName().getString())
-                            .detail("<b>" + waystone.getName().getString() + "</b><br>"
-                                + pos.getX() + ", " + pos.getY() + ", " + pos.getZ())
+                        HtmlMarker.builder()
+                            .label(name)
+                            .html(html)
                             .position(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5)
                             .maxDistance(100000)
                             .build()
