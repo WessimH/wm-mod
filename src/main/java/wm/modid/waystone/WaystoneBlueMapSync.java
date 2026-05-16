@@ -92,12 +92,14 @@ public class WaystoneBlueMapSync {
     private static void syncAll(BlueMapAPI api) {
         if (server == null) return;
 
-        // Collecte tous les waystones actuels
+        // Collecte uniquement les waystones activés par un joueur
         Set<String> currentUids = new HashSet<>();
-        WaystonesAPI.getAllWaystones(server).forEach(waystone -> {
-            currentUids.add(waystone.getWaystoneUid().toString());
-            addMarker(api, waystone);
-        });
+        WaystonesAPI.getAllWaystones(server).stream()
+            .filter(Waystone::wasSeen)
+            .forEach(waystone -> {
+                currentUids.add(waystone.getWaystoneUid().toString());
+                addMarker(api, waystone);
+            });
 
         // Supprime les marqueurs de waystones qui n'existent plus
         for (ServerLevel level : server.getAllLevels()) {
