@@ -67,7 +67,6 @@ public class WaystoneBlueMapSync {
         BlueMapAPI.onEnable(api -> {
             Wm.LOGGER.info("BlueMap prêt, sync des waystones...");
             syncAll(api);
-            wm.modid.bluemap.TpsBlueMapDisplay.register(api);
         });
 
         // Rafraichit toutes les minutes
