@@ -7,7 +7,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import wm.modid.commands.TabPingDisplay;
 import wm.modid.commands.TpsCommand;
-import wm.modid.commands.TpsTracker;
 
 /**
  * Main entry point for the Wm (Waystone Manager) mod.
@@ -49,7 +48,6 @@ public class Wm implements ModInitializer {
      */
     @Override
     public void onInitialize() {
-        TpsTracker.register();
         TpsCommand.register();
         TabPingDisplay.register();
 
