@@ -19,7 +19,7 @@ jobs:
           distribution: 'temurin'
 
       - name: Build
-        run: ./gradlew build
+        run: ./gradlew build -Pmod_version=${{ github.ref_name }}
 
       - name: Create Release
         uses: softprops/action-gh-release@v2
