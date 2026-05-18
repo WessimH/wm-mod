@@ -5,6 +5,28 @@ All notable changes to the Wm mod will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] - 2026-05-18
+
+### Added
+- **Grave System**
+  - Player head with skin placed at death position
+  - Right-click grave head to open chest inventory with all stored items
+  - Grave inventory contains main slots (36), armor (4) and offhand (1)
+  - Auto-removes grave and head block when all items are collected
+  - Breaking the grave head drops all items at the position
+  - Death message sent to player with grave coordinates
+
+- **BlueMap Grave Markers**
+  - 💀 skull marker added on BlueMap at every grave location
+  - Marker removed automatically when grave is collected or broken
+  - Only active when BlueMap mod is loaded
+
+### Changed
+- Removed automatic TPS chat alerts (too spammy)
+- Waystone markers now use `HtmlMarker` instead of `POIMarker` for cleaner look
+- Waystone markers filtered to only show player-activated waystones (`wasSeen()`)
+- TPS widget displayed on BlueMap web interface (bottom-right corner)
+
 ## [1.0.0] - 2026-05-16
 
 ### Added
@@ -108,7 +130,7 @@ Not applicable for version 1.0.0 (initial release).
 
 ---
 
-**Current Version**: 1.0.0
-**Latest Release Date**: 2026-05-16
+**Current Version**: 1.1.0
+**Latest Release Date**: 2026-05-18
 **Maintenance Status**: Active Development
 
