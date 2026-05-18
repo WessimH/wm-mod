@@ -50,6 +50,7 @@ public class Wm implements ModInitializer {
     public void onInitialize() {
         TpsCommand.register();
         TabPingDisplay.register();
+        wm.modid.grave.GraveManager.register();
 
         if (FabricLoader.getInstance().isModLoaded("bluemap")
                 && FabricLoader.getInstance().isModLoaded("waystones")) {

@@ -18,6 +18,5 @@ public class WmClient implements ClientModInitializer {
 	 */
 	@Override
 	public void onInitializeClient() {
-		// Client-side initialization code goes here
 	}
 }
